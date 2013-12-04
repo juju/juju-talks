@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Introducing Juju: Service Orchestration for the Cloud</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/ubuntu.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/fade.css">
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<section class="slide" id="title-slide" style="background: #ffffff;">
+<br/><br/>
+<img src="juju.png"/>
+</section>
+
+<section class="slide" id="addunit">
+	<h2>About</h2>
+
+<img src="ubuntu.png"/>
+<br/><br/>
+                <center><h3>Kapil Thangavelu &lt;kapil.thangavelu@canonical.com&gt; - @kapilvt<h3></center>
+</section>
+
+<section class="slide" id="whatisjuju">
+<h2>What is juju?</h2>
+<h1>A service orchestration tool for clouds and datacenters.</h1>
+</section>
+
+<section class="slide" id="why-1">
+<img src="slide03.jpg" />
+</section>
+
+<section class="slide" id="why-2">
+<img src="slide04.jpg" />
+</section>
+
+<section class="slide" id="why-3">
+<img src="slide05.jpg" />
+</section>
+
+<section class="slide" id="why-4">
+<img src="slide06.jpg" />
+</section>
+
+<section class="slide" id="why-5">
+<img src="slide07.jpg" />
+</section>
+
+<section class="slide" id="why-6">
+<img src="slide08.jpg" />
+</section>
+
+<section class="slide" id="why-7">
+<img src="slide09.jpg" />
+</section>
+
+<section class="slide" id="why-8">
+<img src="slide10.jpg" />
+</section>
+
+<section class="slide" id="why-9">
+<img src="slide11.jpg" />
+</section>
+
+<section class="slide" id="why-10">
+<img src="slide12.jpg" />
+</section>
+
+<section class="slide" id="why-11">
+<img src="slide13.jpg" />
+</section>
+
+
+<section class="slide" id="why-12">
+<img src="slide14.jpg" />
+</section>
+
+<section class="slide" id="why-13">
+<img src="slide15.jpg" />
+</section>
+
+<section class="slide" id="why-14">
+<img src="slide16.jpg" />
+</section>
+
+<section class="slide" id="why-15">
+<img src="slide17.jpg" />
+</section>
+
+<section class="slide" id="why-16">
+<h2>juju manages services, NOT machines</h2>
+<h2>juju incorporates provisioning</h2>
+<h2>juju enables service definition reuse and mangement</h2>
+</section>
+
+<section class="slide" id="hadoop">
+<h2>What problems are we trying to solve?</h2>
+<br/><br/><br/>
+<img src="hadoop_logo.png" style="vertical-align:middle;" />
+</section>
+
+
+<section class="slide" id="betteridea">
+<h2>How about this instead?</h2>
+<pre>juju bootstrap
+juju deploy hadoop hadoop-master --constraints="mem=32GB"
+juju deploy -n5 hadoop hadoop-slavecluster
+</pre>
+</section>
+
+<section class="slide" id="relations">
+<h2>Connecting services</h2>
+<pre>juju add-relation hadoop-master:namenode hadoop-slavecluster:datanode</pre>
+<pre>juju add-relation hadoop-master:jobtracker hadoop-slavecluster:tasktracker</pre>
+</section>
+
+
+<section class="slide" id="scaling">
+<h1>Scaling Services</h1>
+</section>
+
+<section class="slide" id="scaling">
+<h2>Scale out!</h2>
+<pre>juju add-unit hadoop-slavecluster
+juju add-unit hadoop-slavecluster
+juju add-unit hadoop-slavecluster</pre>
+<section class="slide" id="scaleit">
+<h3>...or just</h3> <pre>juju add-unit -n20 hadoop-slavecluster</pre>
+<h3>We've tested this up to 2,000 nodes on AWS</h3>
+</section>
+</section>
+
+
+<section class="slide" id="demo2">
+<h2>Details, Details</h2>
+<li>Quick architecture</li>
+<li>Setting up an environment</li>
+<li>Writing your first charm</li>
+<li>Hooks & Relations</li>
+<li>Introspection & Debugging</li>
+</section>
+
+<section class="slide" id="architecture">
+<img src="architecture.png"/>
+</section>
+
+<section class="slide" id="environments-yaml">
+<h1>Environments.yaml</h1>
+<pre> $ cat ~/.juju/environments.yaml
+default: dev
+environments:
+  dev:
+    type: local
+    data-dir: /home/kapil/.juju/local
+    admin-secret: b3a5dee4fb8c4fc9a4db04751e5936f4
+    default-series: precise
+  prod:
+    type: ec2
+    control-bucket: acme-6a97bd05a8984c0ea0e7150fc16b321
+    admin-secret: b3a5dee4fb8c4fc9a4db04751e5936f4
+    default-series: precise
+    region: us-west-2
+</pre>
+</section>
+
+<section class="slide" id="charm-contents">
+<h2>Charm contents</h2>
+<img src="charm-contents.png" />
+</section>
+
+<section class="slide" id="metadata.yaml">
+<h1>Charm Metadata</h1>
+<pre>
+name: mediawiki
+summary: "website engine for collaborative work"
+description: A program for creating a collaboratively edited website.
+requires:
+  db:
+    interface: mysql
+  slave:
+    interface: mysql
+  cache:
+    interface: memcache
+provides:
+  website:
+    interface: http
+</pre>
+</section>
+
+<section class="slide" id="service-config">
+<pre>
+options:
+  title:
+    default: ThinkUp
+    type: string
+    description: The name of the site
+  timezone:
+    default: UTC
+    type: string
+    description: The timezone for the server to use
+  cache:
+    default: false
+    type: boolean
+    description: Whether to cache pages or not
+  cache-lifetime:
+    default: 600
+    type: int
+    description: The time to cache a page for
+</pre>
+</section>
+
+<section class="slide" id="hooks-intro">
+<h2>Hooks</h2>
+<li>Named executables as lifecycle event handlers</li>
+<li>Use any language/tools you want</li>
+<li>CLI api for hooks to interact with juju</li>
+</section>
+
+<section class="slide" id="hooks-lifecycle">
+<h2>Hooks Enumerated</h2>
+<li>install</li>
+<li>start</li>
+<li>stop</li>
+<li>config-changed</li>
+<li>upgrade-charm</li>
+</section>
+
+<section class="slide" id="relation-intro">
+<h2>Relations</h2>
+<li>Bidirectional communication channels</li>
+<li>Simple primitives for dynamic assembly</li>
+<li>Client/Server and Peer modeling</li>
+<li>Typed by name convention</li>
+</section>
+
+<section class="slide" id="relation-intro">
+<h2>Relations Hooks</h2>
+<li>join</li>
+<li>changed</li>
+<li>departed</li>
+</section>
+
+<section class="slide" id="relation-pic">
+<h2>Relation Visualized</h2>
+<img src="relations-basic.png" />
+</section>
+
+<section class="slide" id="hook-api">
+<h2>Hook API</h2>
+<li>config-get</li>
+<li>unit-get</li>
+<li>relation-list</li>
+<li>relation-get/set</li>
+<li>open/close-port</li>
+<li>juju-log</li>
+</section>
+
+<section class="slide" id="hook-api">
+<h2>Subordinate Charms</h2>
+<li>logging, monitoring, authentication</li>
+<li>cross-cutting concerns</li>
+<li>deployed in existing units</li>
+</section>
+
+<section class="slide" id="dev-tools">
+<h2>Debug Log</h2>
+<img src="debug-log.gif" />
+</section>
+
+<section class="slide" id="dev-tools-2">
+<h2>Debug hooks</h2>
+<img src="debug-hooks.gif" />
+</section>
+
+<section class="slide" id="demo">
+<h2>Demo</h2>
+<li>subway</li>
+<li>mediawiki</li>
+<li>hadoop</li>
+</section>
+
+
+
+<section class="slide" id="community">
+<h2>A Community of Expertise, not just packages</h2>
+<li>As little or as much as you want.</li>
+<li>... in whatever language you want.</li>
+<li>Easy to share, easy to hack on.</li>
+<li>Lightweight contribution process.</li>
+<li>You're probably 90% there!</li>
+</section>
+
+
+<!--
+</section>
+<section class="slide" id="why">
+<h2>Why do this?</h2>
+<li>Get your code out to users faster!</li>
+<li>Because sometimes you need/want newer things than Ubuntu provides.</li>
+<li>Built in sharing</li>
+	<pre>juju deploy cs:~jorge/my-crazy-deployment</pre>
+<li>Automated testing of all the charms</li>
+</section>
+
+<section class="slide" id="mysql">
+<h2>Ship Community best practices...</h2>
+<blockquote>MySQL scaling is a solved problem.
+	<br/><cite>- Paul Hammond - Monday</cite>
+</blockquote>
+<pre>juju set mysql tuning-level=fast
+juju set mysql tuning-level=safe
+juju set mysql tuning-level=unsafe</pre>
+</section>
+-->
+
+<section class="slide" id="charms">
+<h2>88+ Charms and counting...</h2>
+<img src="charms.png" />
+</section>
+
+<section class="slide" id="deployment">
+<h2>Deployment Options</h2>
+<img src="options.png" align="right"/>
+<li>EC2</li>
+<li>OpenStack (Beta)</li>
+<li>Bare Metal via MAAS</li>
+<li>Azure (experimental)</li>
+<li>Local Development via LXC containers</li>
+<li>.... ?</li>
+</section>
+
+<section class="slide" id="openstack">
+<h2>Openstack</h2>
+<img src="openstack.gif" />
+</section>
+
+<section class="slide" id="provider">
+<h2></h2>
+<img src="juju-diagram.png" />
+</section>
+
+<section class="slide" id="future">
+<h2>The Future</h2>
+<img src="moller.jpg" align="right"/>
+<li>Stacks</li>
+<li>Storage Management</li>
+<li>Cloud Federation</li>
+<li>Rest API</li>
+<li>More providers as cloud services pop up</li>
+<li>Charms, Charms, Charms, Charms...</li>
+</section>
+
+
+<section class="slide" id="thanks">
+<h2>Thanks!</h2>
+<li>juju.ubuntu.com</li>
+<li>launchpad.net/juju</li>
+<li>jujucharms.com</li>
+<li>#juju on Freenode</li>
+<li>OSX Client: jujutools.github.com/</li>
+<br/><br/><br/>
+<h3>Kapil Thangavelu &lt;kapil.thangavelu@canonical.com&gt; - @kapilvt</h3>
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>

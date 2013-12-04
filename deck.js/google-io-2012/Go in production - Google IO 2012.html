@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://go-in-prod.appspot.com/#28 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Go in production - Google IO 2012</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="http://go-in-prod.appspot.com/theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="http://go-in-prod.appspot.com/theme/css/phone.css">
+  <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="slides" src="./Go in production - Google IO 2012_files/slides.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="order" src="./Go in production - Google IO 2012_files/order.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="../slide_config" src="./Go in production - Google IO 2012_files/slide_config.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="modernizr.custom.45394" src="./Go in production - Google IO 2012_files/modernizr.custom.45394.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="prettify/prettify" src="./Go in production - Google IO 2012_files/prettify.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="prettify/lang-go" src="./Go in production - Google IO 2012_files/lang-go.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="hammer" src="./Go in production - Google IO 2012_files/hammer.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="slide-controller" src="./Go in production - Google IO 2012_files/slide-controller.js"></script><script type="text/javascript" charset="utf-8" data-requirecontext="_" data-requiremodule="slide-deck" src="./Go in production - Google IO 2012_files/slide-deck.js"></script><!--<base target="_blank">--><base href="." target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="./Go in production - Google IO 2012_files/require-1.0.8.min.js"></script>
+<link rel="icon" type="image/png" href="http://go-in-prod.appspot.com/images/google_developers_logo_tiny.png"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open%20Sans:regular,semibold,italic,italicsemibold|Inconsolata&v2"></head>
+<body style="opacity: 0" class=" hasGoogleVoiceExt loaded">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground" data-slide-num="1" data-total-slides="69">
+    <article class="flexbox vcenter">
+      <span><img src="./Go in production - Google IO 2012_files/google_developers_logo.png"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground" data-slide-num="2" data-total-slides="69">
+    <aside class="gdbar"><img src="./Go in production - Google IO 2012_files/google_developers_icon_128.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title="">Go in production</h1>
+      <h2 data-config-subtitle=""><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter="">Andrew Gerrand - Google<br>Gustavo Niemeyer - Canonical<br>Keith Rarick - Heroku<br>Evan Shaw - Iron.io<br>Patrick Crosby - StatHat</p>
+    </hgroup>
+  </slide>
+
+  <slide class="segue dark nobackground" data-slide-num="3" data-total-slides="69">
+    <aside class="gdbar"><img src="./Go in production - Google IO 2012_files/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Gustavo Niemeyer</h2>
+      <h3>Canonical</h3>
+    </hgroup>
+  </slide>
+
+  <slide class="fill" style="background-image: url(juju/slide01.jpg)" data-slide-num="4" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide03.jpg)" data-slide-num="5" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide04.jpg)" data-slide-num="6" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide05.jpg)" data-slide-num="7" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide06.jpg)" data-slide-num="8" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide07.jpg)" data-slide-num="9" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide08.jpg)" data-slide-num="10" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide09.jpg)" data-slide-num="11" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide10.jpg)" data-slide-num="12" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide11.jpg)" data-slide-num="13" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide12.jpg)" data-slide-num="14" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide13.jpg)" data-slide-num="15" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide14.jpg)" data-slide-num="16" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide15.jpg)" data-slide-num="17" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide16.jpg)" data-slide-num="18" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide17.jpg)" data-slide-num="19" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide18.jpg)" data-slide-num="20" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide19.jpg)" data-slide-num="21" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide20.jpg)" data-slide-num="22" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide21.jpg)" data-slide-num="23" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide22.jpg)" data-slide-num="24" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide23.jpg)" data-slide-num="25" data-total-slides="69"></slide>
+  <slide class="fill far-past" style="background-image: url(juju/slide24.jpg)" data-slide-num="26" data-total-slides="69"></slide>
+  <slide class="fill past" style="background-image: url(juju/slide25.jpg)" data-slide-num="27" data-total-slides="69"></slide>
+  <slide class="fill current" style="background-image: url(juju/slide26.jpg)" data-slide-num="28" data-total-slides="69"></slide>
+  <slide class="fill next" style="background-image: url(juju/slide27.jpg)" data-slide-num="29" data-total-slides="69"></slide>
+  <slide class="fill far-next" style="background-image: url(juju/slide28.jpg)" data-slide-num="30" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide29.jpg)" data-slide-num="31" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(juju/slide30.jpg)" data-slide-num="32" data-total-slides="69"></slide>
+
+  <slide class="segue dark nobackground" data-slide-num="33" data-total-slides="69">
+    <aside class="gdbar"><img src="./Go in production - Google IO 2012_files/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Keith Rarick</h2>
+      <h3>Heroku</h3>
+    </hgroup>
+  </slide>
+
+  <slide data-slide-num="34" data-total-slides="69" class="">
+    <hgroup>
+    	<img style="float: right;" src="./Go in production - Google IO 2012_files/heroku.png">
+      <h2>What is Heroku?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>PaaS for web applications in all languages
+        </li><li>1.9 million apps
+        </li><li>About 85 employees
+        </li><li>Each active app runs one or more “dynos” –&nbsp;lightweight process containers
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="35" data-total-slides="69" class="">
+    <hgroup>
+      <h2>Routing Table</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Changes whenever a Heroku dyno starts, stops, or moves</li>
+        <li>For example, <code>heroku scale web=5</code></li>
+        <li>&gt;1.9 million Heroku apps; a fraction of these are active at any time</li>
+        <li>Plenty of churn</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="36" data-total-slides="69">
+    <hgroup>
+      <h2>Routing Table Service</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Originally all Ruby</li>
+        <li>Accepts updates from the process manager</li>
+        <li>HTTP router gets state from HTTP calls to this service</li>
+        <li>Initial JSON dump to each HTTP router instance</li>
+        <li>Followed by a stream of updates</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="37" data-total-slides="69">
+    <article class="flexbox vcenter">
+      <span><img src="./Go in production - Google IO 2012_files/heroku-diagram-1.png"></span>
+    </article>
+  </slide>
+
+  <slide data-slide-num="38" data-total-slides="69">
+    <hgroup>
+      <h2>The Problem</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Route lookups are fast – no IPC</li>
+        <li>But bootstrapping a new router instance is slow</li>
+        <li>Why? Generating the initial dump</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="39" data-total-slides="69">
+    <hgroup>
+      <h2>Enter Go</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Goal: drop-in replacement for the “streaming updates” piece</li>
+        <li>Easy enough to play with during a single afternoon</li>
+        <li>Working prototype after a couple of hours</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="40" data-total-slides="69">
+    <article class="flexbox vcenter">
+      <span><img src="./Go in production - Google IO 2012_files/heroku-diagram-2.png"></span>
+    </article>
+  </slide>
+
+  <slide data-slide-num="41" data-total-slides="69">
+    <hgroup>
+      <h2>Slam Dunk</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>10× speedup</li>
+        <li>Generating process (in Go) is no longer the bottleneck</li>
+        <li>(Nor is the network)</li>
+        <li>Easy to deploy and monitor, works great, so now in production</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="42" data-total-slides="69">
+    <hgroup>
+      <h2> Go at Heroku </h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li>Started with experiments and side projects</li>
+        <li>Now using Go for a handful of production services</li>
+        <li>The list is growing</li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground" data-slide-num="43" data-total-slides="69">
+    <aside class="gdbar"><img src="./Go in production - Google IO 2012_files/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Evan Shaw</h2>
+      <h3>Iron.io</h3>
+    </hgroup>
+  </slide>
+
+  <slide data-slide-num="44" data-total-slides="69">
+    <hgroup>
+      <img src="./Go in production - Google IO 2012_files/ironio-logo-500x180.png" alt="Iron.io">
+    </hgroup>
+    <article>
+      <ul>
+        <li>Cloud application services
+        </li><li>Remove infrastructure worries
+        </li><li>Enable small teams to do big things
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="45" data-total-slides="69">
+    <hgroup>
+      <img src="./Go in production - Google IO 2012_files/ironworker-logo-500x120.png" alt="IronWorker">
+    </hgroup>
+    <article>
+      <ul>
+        <li>Massively parallel worker platform
+        </li><li>API originally written with Ruby on Rails
+        </li><li>It was too slow
+        </li><li>Rewriting it in Go made it faster
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="46" data-total-slides="69">
+    <hgroup>
+      <h2> Other products </h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li> IronMQ, scalable message queue
+        </li><li> IronCache, distributed key/value store
+        </li><li> REST/HTTP API and text protocol support
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="47" data-total-slides="69">
+    <hgroup>
+      <h2> The flow of IronWorker tasks </h2>
+    </hgroup>
+    <article class="flexbox vcenter">
+      <span><img src="./Go in production - Google IO 2012_files/ironio-diagram-1.png"></span>
+    </article>
+  </slide>
+
+  <slide data-slide-num="48" data-total-slides="69">
+    <hgroup>
+      <h2> Handling an HTTP request </h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li> Compose HTTP handlers
+        <ul>
+          <li> Authentication
+          </li><li> Database connection sharing
+          </li><li> Statistics and usage
+        </li></ul>
+      </li></ul>
+      <span><img src="./Go in production - Google IO 2012_files/ironio-diagram-2.png"></span>
+    </article>
+  </slide>
+
+  <slide data-slide-num="49" data-total-slides="69">
+    <hgroup>
+      <h2> Concurrency </h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li> HTTP requests handled in separate goroutines by the HTTP package
+        </li><li> For text protocols, one goroutine per client connection
+        </li><li> Asynchronous I/O is automatic
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="50" data-total-slides="69">
+    <hgroup>
+      <h2> Concurrency as an optimization </h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li> Non-critical operations can be moved to a separate goroutine
+        </li><li> Even less critical operations can be batched together in a dedicated goroutine
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide data-slide-num="51" data-total-slides="69">
+    <hgroup>
+      <h2> Concurrency as an optimization </h2>
+    </hgroup>
+    <article>
+<p>Before:
+</p><pre class="prettyprint lang-go" data-lang="go"><span class="pln">func handler(w http.ResponseWriter, r *http.Request) {
+  projectId := getProjectId(r)
+  updateStatistics(projectId)
+  </span><span class="com">// ...</span><span class="pln">
+}</span></pre>
+<p>After:
+</p><pre class="prettyprint lang-go" data-lang="go"><span class="pln">func handler(w http.ResponseWriter, r *http.Request) {
+  go func() {
+    projectId := getProjectId(r)
+    go updateStatistics(projectId)
+  }()
+  </span><span class="com">// ...</span><span class="pln">
+}</span></pre>
+    </article>
+  </slide>
+
+
+  <slide data-slide-num="52" data-total-slides="69">
+    <hgroup>
+      <h2>Why Go?</h2>
+    </hgroup>
+    <article>
+    	<img src="./Go in production - Google IO 2012_files/gopher.jpg" style="width: 350px; float: right;">
+      <ul>
+        <li> Fast
+        </li><li> Still reasonably expressive
+        </li><li> Rich standard library
+        </li><li> Not tied to a VM
+        </li><li> Awesome
+      </li></ul>
+    </article>
+  </slide>
+
+  <slide class="segue dark nobackground" data-slide-num="53" data-total-slides="69">
+    <aside class="gdbar"><img src="./Go in production - Google IO 2012_files/google_developers_icon_128.png"></aside>
+    <hgroup class="auto-fadein">
+      <h2>Patrick Crosby</h2>
+      <h3>StatHat</h3>
+    </hgroup>
+  </slide>
+
+  <slide class="fill" style="background-image: url(stathat/slide1.png)" data-slide-num="54" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide2.png)" data-slide-num="55" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide3.png)" data-slide-num="56" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide4.png)" data-slide-num="57" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide5.png)" data-slide-num="58" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide6.png)" data-slide-num="59" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide7.png)" data-slide-num="60" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide8.png)" data-slide-num="61" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide9.png)" data-slide-num="62" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide10.png)" data-slide-num="63" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide11.png)" data-slide-num="64" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide12.png)" data-slide-num="65" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide13.png)" data-slide-num="66" data-total-slides="69"></slide>
+  <slide class="fill" style="background-image: url(stathat/slide14.png)" data-slide-num="67" data-total-slides="69"></slide>
+
+  <slide class="thank-you-slide segue nobackground" data-slide-num="68" data-total-slides="69">
+    <aside class="gdbar right"><img src="./Go in production - Google IO 2012_files/google_developers_icon_128.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>Q&amp;A</h2>
+      <h3>Questions: http://goo.gl/KZsoo</h3>
+    </article>
+    <p class="auto-fadein" data-config-contact="">Andrew Gerrand - Google<br>Gustavo Niemeyer - Canonical<br>Keith Rarick - Heroku<br>Evan Shaw - Iron.io<br>Patrick Crosby - StatHat</p>
+  </slide>
+
+  <slide class="logoslide dark nobackground" data-slide-num="69" data-total-slides="69">
+    <article class="flexbox vcenter">
+      <span><img src="./Go in production - Google IO 2012_files/google_developers_logo_white.png"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+<div class="slide-area" id="prev-slide-area"></div><div class="slide-area" id="next-slide-area"></div></slides>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+
+
+</body></html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>juju: DevOps Distilled</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/ubuntu.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/fade.css">
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<section class="slide" id="title-slide" style="background: #ffffff;">
+<br/><br/>
+<img src="juju.png" style="vertical-align:middle;" />
+</section>
+
+<section class="slide" id="addunit">
+	<h2>Who are we?</h2>	
+
+<img src="ubuntu.png"/>
+		<center><h2>Jorge O. Castro &lt;jorge@ubuntu.com&gt;</h2></center>	
+                <center><h2>Marco Ceppi &lt;marcoceppi@ubuntu.com&gt;<h2></center>
+</section>
+
+<section class="slide" id="hadoop">
+<br/><br/><br/><br/>
+<img src="hadoop_logo.png" style="vertical-align:middle;" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop2.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop3.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop4.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop5.png" />
+</section>
+
+<section class="slide" id="betteridea">
+<h2>How about this instead?</h2>
+<pre>juju bootstrap
+juju deploy hadoop-master
+juju deploy hadoop-slave</pre>
+</section>
+
+<section class="slide" id="title-slide">
+	<h1>juju manages services, NOT machines</h1>
+</section>
+
+<section class="slide" id="circles">
+<img src="DevOpsolution.png" />
+</section>
+
+<section class="slide" id="circles">
+<h1>Relating Services</h1>
+</section>
+
+<section class="slide" id="relations">
+<h2>Relating the Services</h2>
+<pre>juju bootstrap
+juju deploy hadoop-master
+juju deploy hadoop-slave</pre>
+<pre>juju add-relation hadoop-master hadoop-slave</pre>
+</section>
+
+<section class="slide" id="scaling">
+<h1>Scaling Services</h1>
+</section>
+
+<section class="slide" id="scaling">
+<h2>Scale Out!</h2>
+
+<pre>juju add-relation hadoop-master hadoop-slave</pre>
+<section class="slide" id="scaleit">
+<pre>juju add-unit hadoop-slave 
+juju add-unit hadoop-slave
+juju add-unit hadoop-slave</pre></section>
+<section class="slide" id="scaleit">
+...or just <pre>juju add-unit n=50 hadoop-slave</pre>
+</section>
+</section>
+
+
+<section class="slide" id="priceless">
+<h1>Tools, boring. Expertise, priceless.</h1>
+</section>
+
+<section class="slide" id="charms">
+<h2>88+ and counting...</h2>
+<img src="charms.png" />
+</section>
+
+<section class="slide" id="wikimedia">
+<h2>This is apt for the cloud...</h2>
+<pre>
+juju deploy mysql 
+juju deploy mediawiki
+juju deploy memcached
+juju deploy haproxy
+juju add-relation mediawiki mysql
+juju add-relation memcached mediawiki
+juju add-relation haproxy mediawiki
+juju add-unit mediawiki
+juju expose haproxy</pre>
+</section>
+
+<section class="slide" id="wikimedia">
+<h2>Let's add some slave databases...</h2>
+<pre>
+juju deploy mysql mysql-slave
+juju add-relation mysql-slave mysql
+juju add-relation mysql-slave:slave mediawiki:db
+juju add-unit mysql-slave
+</pre>
+
+<section class="slide" id="wikimedia">
+<h2>.. almost done!</h2>
+<pre>
+juju set demo-wiki name=”Life, The Universe, and Everything”
+juju deploy mediawiki –config=arthur-dents-wiki.yaml arthur-dents-wiki
+</pre>
+</section>
+</section>
+
+<section class="slide" id="community">
+<h2>A Community of Expertise, not just packages</h2>
+<li>As little or as much as you want.</li>
+<li>... in whatever language you want.</li>
+<li>Easy to share, easy to hack on.</li>
+<li>Lightweight contribution process.</li>
+<li>You're probably 90% there!</li>
+</section>
+
+<section class="slide" id="example">
+<h2>Let's move something to the cloud!</h2>
+<img src="omg_logo.png" align="center"/>
+</section>
+
+<section class="slide" id="help">
+<h2>I just need something to fix</h2>
+<img src="itworks.png" align="center"/>
+<img src="help.png" align="center"/>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<h2>What we did....</h2>
+<pre>juju bootstrap
+juju deploy haproxy
+juju deploy mysql
+juju deploy wordpress</pre>
+<section class="slide" id="whatwedid"/>
+<pre>
+juju add-relation mysql wordpress
+juju add-relation wordpress haproxy
+juju expose haproxy</pre>
+</section>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<img src="circles1.png" align="center"/>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<h2>I messed up...</h2>
+<h1>$3,500 a month</h1>
+</section>
+
+<section class="slide" id="whoops"/>
+<h2>This doesn't scale!</h2>
+<li>Wordpress charm was too basic, needed 4 x xlarges!</li>
+<li>Untested in real life.</li>
+<li>I need a real expert!</li>
+</section>
+
+<section class="slide" id="deploy"/>
+<h2>Found someone to help, let's iterate ...</h2>
+<pre>juju deploy</pre>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<img src="circles2.png" align="center"/>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<h2>Not so bad...</h2>
+<h1>$372 a month</h1>
+</section>
+
+<section class="slide" id="deploy"/>
+<h2>Now we're tuning, let's iterate ...</h2>
+<pre>juju deploy</pre>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<img src="circles2.png" align="center"/>
+</section>
+
+<section class="slide" id="whatwedid"/>
+<h2>Not so bad...</h2>
+<h1>$172 a month</h1>
+</section>
+
+<section class="slide" id="deploy"/>
+<h2>Let's scale up and down</h2>
+<pre>juju add-unit wordpress-omg
+juju remove-unit wordpress-omg</pre>
+<pre>juju upgrade-charm wordpress-omg</pre>
+
+</section>
+
+<section class="slide" id="omgconclusion"/>
+<h2>In the end...</h2>
+<li>Same price or lower as a colo</li>
+<li>Elasticity!</li>
+<li>Reliability</li>
+<li>Devs testing on their local laptops, deploying to the cloud quickly
+<li>Cloud vendor lock in? I'm not so sure ...</li>
+</section>
+
+<section class="slide" id="deployment">
+<h2>Deployment Options</h2>
+<img src="options.png" align="right"/>
+<li>EC2</li>
+<li>OpenStack</li>
+<li>Bare Metal</li>
+<li>Local Development</li>
+<li>... ?</li>
+</section>
+
+<section class="slide" id="omgconclusion"/>
+<h2>Lessons here for everyone</h2>
+<li>Everyone in Ubuntu can now deploy WordPress like this</li>
+<li>This is the beginning</li>
+<li>The Charm Store doesn't freeze.</li>
+<li>juju comes with Ubuntu.</li>
+</section>
+
+<section class="slide" id="omgconclusion"/>
+<h2>The new new archive</h2>
+<li>The Charm Store doesn't freeze.</li>
+<li>juju comes with Ubuntu.</li>
+<li>Automated testing of charms</li>
+<li>Share your expertise, no more deployment scripts on pastebins!</li>
+</section>
+
+<section class="slide" id="charms">
+<h2>We are just starting...</h2>
+<img src="charms.png" />
+</section>
+
+<section class="slide" id="future">
+<h2>The Future</h2>
+<img src="meow.png" align="right"/>
+<li>Charm Store</li>
+<li>Subordinates</li>
+<li>Constraints</li>
+<li>Stacks</li>
+<li>Storage Management</li>
+<li>Cloud Federation</li>
+<li>Auto Scaling</li>
+<li>Charms, Charms, Charms, Charms..</li>
+</section>
+
+<section class="slide" id="demo">
+<h1>Does your project run on the cloud? Come talk to us!</h1>
+</section>
+
+<section class="slide" id="thanks">
+<h2>Thanks!</h2>
+<li>juju.ubuntu.com</li>
+<li>cloud.ubuntu.com</li>
+<li>launchpad.net/juju</li>
+<li>#juju on Freenode</li>
+<br/><br/>
+		<center><h3>Jorge O. Castro &lt;jorge@ubuntu.com&gt;</h3></center>	
+                <center><h3>Marco Ceppi &lt;marcoceppi@ubuntu.com&gt;<h3></center>
+
+</section>
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>

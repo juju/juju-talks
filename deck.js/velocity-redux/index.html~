@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Introducing Juju: Service Orchestration for the Cloud</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/ubuntu.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/fade.css">
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<section class="slide" id="title-slide" style="background: #ffffff;">
+<br/><br/>
+<img src="juju.png"/>
+</section>
+
+<section class="slide" id="addunit">
+	<h2>Who are we?</h2>	
+
+<img src="ubuntu.png"/>
+<br/><br/>
+		<center><h3>Jorge O. Castro &lt;jorge.castro@canonical.com&gt; - @castrojo</h3></center>	
+                <center><h3>Kapil Thangavelu &lt;kapil.thangavelu@canonical.com&gt; - @kapilvt<h3></center>
+</section>
+
+<section class="slide" id="whatisjuju">
+<h2>What is juju?</h2>
+<h1>A service orchestration tool for the cloud.</h1>
+</section>
+
+<section class="slide" id="scaleit">
+<h1>That sounds complicated and buzzwordy, let's do this by example.</h1>
+</section>
+
+
+<section class="slide" id="hadoop">
+<h2>What problems are we trying to solve?</h2>
+<br/><br/><br/>
+<img src="hadoop_logo.png" style="vertical-align:middle;" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop2.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop3.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop4.png" />
+</section>
+
+<section class="slide" id="hadoop">
+<img src="hadoop5.png" />
+</section>
+
+<section class="slide" id="betteridea">
+<h2>How about this instead?</h2>
+<pre>juju bootstrap
+juju deploy hadoop hadoop-master
+juju deploy hadoop -n5 hadoop hadoop-slavecluster
+</pre>
+</section>
+
+<section class="slide" id="title-slide">
+	<h1>juju manages services, NOT machines</h1>
+</section>
+
+<section class="slide" id="circles">
+<img src="DevOpsolution.png" />
+</section>
+
+<section class="slide" id="whatisit">
+<h2>So juju is ...</h2>
+<li>Like apt-get, but for sets of machines</li>
+<li>Charms do all the work for you.</li>
+<li>Connected to a Charm Store of community contributed charms that you can deploy.</li>
+</section>
+
+<section class="slide" id="circles">
+<h1>Relating Services</h1>
+</section>
+
+<section class="slide" id="relations">
+<h2>Relating the Services</h2>
+<pre>juju add-relation hadoop-master:namenode hadoop-slavecluster:datanode</pre>
+<pre>juju add-relation hadoop-master:jobtracker hadoop-slavecluster:tasktracker</pre>
+</section>
+
+<section class="slide" id="scaling">
+<h1>Scaling Services</h1>
+</section>
+
+<section class="slide" id="scaling">
+<h2>Scale out!</h2>
+<pre>juju add-unit hadoop-slavecluster
+juju add-unit hadoop-slavecluster
+juju add-unit hadoop-slavecluster</pre>
+<section class="slide" id="scaleit">
+<h3>...or just</h3> <pre>juju add-unit -n20 hadoop-slavecluster</pre>
+<h3>We've tested this up to 2,000 nodes on AWS</h3>
+</section>
+</section>
+
+<section class="slide" id="demo">
+<h1>Let's just show you!</h1>
+</section>
+
+<section class="slide" id="priceless">
+<h1>Tools, boring. Expertise, priceless.</h1>
+</section>
+
+<section class="slide" id="newnew">
+<h2>This is apt-get for the cloud</h2>
+<li>You can kind of do what you want. *</li>
+<li>We get out of the way, deploy your stack how you want.</li>
+<li>Pull from VCS, PPAs, or build on the spot.</li>
+<li>No need for old stuff for the life of the LTS, charm store doesn't freeze!</li>
+<br/><br/><br/><br/><br/>
+<h3>* within reason!</h3>
+</section>
+
+<section class="slide" id="community">
+<h2>A Community of Expertise, not just packages</h2>
+<li>As little or as much as you want.</li>
+<li>... in whatever language you want.</li>
+<li>Easy to share, easy to hack on.</li>
+<li>Lightweight contribution process.</li>
+<li>You're probably 90% there!</li>
+</section>
+
+<section class="slide" id="community">
+<h2>Why do this?</h2>
+<li>Get your code out to users faster!</li>
+<li>Because sometimes you need/want newer things than Ubuntu provides.</li>
+<li>Built in sharing</li>
+	<pre>juju deploy cs:~jorge/my-crazy-deployment</pre>
+<li>Automated testing of all the charms</li>
+
+</section>
+
+<section class="slide" id="mysql">
+<h2>Ship Community best practices...</h2>
+<blockquote>MySQL scaling is a solved problem.
+	<br/><cite>- Paul Hammond - 5.5 hours ago</cite>
+</blockquote>
+<pre>juju set mysql tuning-level=fast
+juju set mysql tuning-level=safe
+juju set mysql tuning-level=unsafe</pre>
+</section>
+
+<section class="slide" id="charms">
+<h2>87+ and counting...</h2>
+<img src="charms.png" />
+</section>
+
+<section class="slide" id="deployment">
+<h2>Deployment Options</h2>
+<img src="options.png" align="right"/>
+<li>EC2</li>
+<li>OpenStack (Beta)</li>
+<li>Bare Metal via MAAS</li>
+<li>Azure (experimental)</li>
+<li>Local Development via LXC containers</li>
+<li>.... ?</li>
+</section>
+
+<section class="slide" id="future">
+<h2>The Future</h2>
+<img src="moller.jpg" align="right"/>
+<li>Stacks</li>
+<li>Storage Management</li>
+<li>Cloud Federation</li>
+<li>Rest API</li>
+<li>More providers as cloud services pop up</li>
+<li>Charms, Charms, Charms, Charms...</li>
+</section>
+
+<section class="slide" id="demo">
+<h1>Does your project run on the cloud? Come talk to us!</h1>
+</section>
+
+
+<section class="slide" id="thanks">
+<h2>Thanks!</h2>
+<li>juju.ubuntu.com</li>
+<li>cloud.ubuntu.com</li>
+<li>launchpad.net/juju</li>
+<li>#juju on Freenode</li>
+<li>OSX Client: http://jujutools.github.com/</li>
+<br/><br/><br/>
+<h3>Kapil Thangavelu &lt;kapil.thangavelu@canonical.com&gt; - @kapilvt</h3>
+<h3>Jorge Castro &lt;jorge.castro@canonical.com&gt; - @castrojo</h3></section>
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>

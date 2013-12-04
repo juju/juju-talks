@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Introducing Juju: Service Orchestration for the Cloud</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/ubuntu.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/fade.css">
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<section class="slide" id="title-slide" style="background: #ffffff;">
+<br/><br/>
+<img src="juju.png"/>
+</section>
+
+
+<section class="slide" id="whatisjuju">
+<h2>What is juju?</h2>
+<h1>A service orchestration tool for clouds and datacenters.</h1>
+</section>
+
+<section class="slide" id="why-16">
+<h2>juju manages services, not machines</h2>
+<h2>juju provides dynamic orchestration to connect services</h2>
+<h2>juju incorporates pluggable provisioning</h2>
+<h2>juju enables service definition reuse and management</h2>
+</section>
+
+<section class="slide" id="charm-contents">
+<h2>Architecture basics</h2>
+<h3> State servers and environment agents (api, provisioning, etc)</h3>
+<h3> Machines with machine agents </h3>
+<h3> Units agents running charm definitions </h3>
+</section>
+
+<section class="slide" id="provider">
+<h2></h2>
+<img src="juju-diagram.png" />
+</section>
+
+<section class="slide" id="charm-contents">
+<h2>Charm contents</h2>
+<img src="charm-contents.png" />
+</section>
+
+<section class="slide" id="metadata.yaml">
+<h1>Charm Metadata</h1>
+<pre>
+name: mediawiki
+summary: "website engine for collaborative work"
+description: A program for creating a collaboratively edited website.
+requires:
+  db:
+    interface: mysql
+  slave:
+    interface: mysql
+  cache:
+    interface: memcache
+provides:
+  website:
+    interface: http
+</pre>
+</section>
+
+<section class="slide" id="service-config">
+<pre>
+options:
+  title:
+    default: ThinkUp
+    type: string
+    description: The name of the site
+  timezone:
+    default: UTC
+    type: string
+    description: The timezone for the server to use
+  cache:
+    default: false
+    type: boolean
+    description: Whether to cache pages or not
+  cache-lifetime:
+    default: 600
+    type: int
+    description: The time to cache a page for
+</pre>
+</section>
+
+<section class="slide" id="hooks-intro">
+<h2>Hooks</h2>
+<li>Named executables as lifecycle event handlers</li>
+<li>Use any language/tools you want</li>
+<li>CLI api for hooks to interact with juju</li>
+</section>
+
+<section class="slide" id="relation-intro">
+<h2>Relations</h2>
+<li>Bidirectional communication channels</li>
+<li>Simple primitives for dynamic assembly</li>
+<li>Client/Server and Peer modeling</li>
+<li>Typed by name convention</li>
+</section>
+
+<section class="slide" id="relation-pic">
+<h2>Relation Visualized</h2>
+<img src="relations-basic.png" />
+</section>
+
+<section class="slide" id="redux">
+<h2>Usage</h2>
+<pre>
+ juju bootstrap
+ juju deploy mysql
+ juju deploy haproxy
+ juju deploy mediawiki
+ juju add-relation mysql mediawiki:db
+ juju add-relation haproxy mediawiki
+</section>
+
+
+
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>

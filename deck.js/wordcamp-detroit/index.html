@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Scaling WordPress in the Cloud</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/ubuntu.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/fade.css">
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<section class="slide" id="whatisjuju">
+<h1>Scaling WordPress in the Cloud</h1>
+</section>
+
+<section class="slide" id="addunit">
+	<h2>Who am I?</h2>	
+
+<img src="ubuntu.png"/>
+<br/><br/>
+		<center><h3>Jorge O. Castro &lt;jorge.castro@canonical.com&gt; - @castrojo</h3></center>	
+</section>
+
+<section class="slide" id="scaleit">
+<h1>I am not a WordPress expert, but I do know how to learn.</h1>
+</section>
+
+<section class="slide" id="charms">
+<h2>My WordPress scaling nightmare...</h2>
+<img src="omg_logo.png" />
+</section>
+
+
+<section class="slide" id="circles">
+<h2>An opportunity</h2>
+<li>Large successful WordPress blog with 3 mill/month viewers</li>
+<li>Data center move gone wrong</li>
+<li>Time is of the essence</li>
+<li>A friend in need...</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>So I moved him to AWS.</h2>
+<li>Vanilla WP installation with no tuning</li>
+<li>But got him on his feet</li>
+</section>
+
+
+<section class="slide" id="circles">
+<h2>Everyone's cloud nightmare</h2>
+<li>Four extra large instances on AWS</li>
+<li>.64 cents an hour = $1,843.20 a month</li>
+</section>
+
+
+<section class="slide" id="circles">
+<h2>Iterate dude.</h2>
+<li>Four large instances on AWS</li>
+<li>.32 cents an hour = $921 a month</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>My first lesson</h2>
+<li>Measure all the things</li>
+<li>Invest in monitoring</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Some tools, newrelic</h2>
+<img src="newrelic.png" />
+</section>
+
+<section class="slide" id="circles">
+<h2>Some tools, siege and blitz</h2>
+<img src="blitz.png" />
+</section>
+
+
+<section class="slide" id="circles">
+<h2>Some tools, gaug.es</h2>
+<img src="gauges1.png" />
+</section>
+
+<section class="slide" id="circles">
+<h2>Some tools, gaug.es</h2>
+<img src="gauges2.png" />
+</section>
+
+<section class="slide" id="circles">
+<h2>Your deployment</h2>
+<li>Automate it, because you'll spend more time measuring than tweaking</li>
+<li>In Ubuntu we give you Juju</li>
+<li>Build in backups too, so you can move around</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Your cloud provider</h2>
+<li>Probably Amazon in the cloud.</li>
+<li>HP Cloud, Google, Rackspace, YOUR OWN.</li>
+<li>Learn your provider</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Your Content Delivery Network</h2>
+<li>Assume nothing</li>
+<li>Shop around</li>
+<li>Cloudflare is free for small sites, a good starter</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Your web server</h2>
+<li>Holy God, nginx</li>
+<li>Reverse proxy and load balancing</li>
+<li>Even so, offload http things to your cloud provider.</li>
+<li>We're shipping a nice config for you in Ubuntu Juju</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Your database server</h2>
+<li>MySQL mostly works ootb</li>
+<li>Spend time optimizing the rest of the stack</li>
+<li>"Scaling MySQL is a solved problem"</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Wordpress itself</h2>
+<li>Confusion, madness, opinions, and caching plugins</li>
+<li>Ideally you want to push all static content</li>
+<li>The #1 problem in our scaling</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Wordpress itself</h2>
+<li>We wish caching on WordPress was just built in.</li>
+<li>We finally settled on Nginx microcache, APC OpCode caching, WordPress caching module (wp-ffpc)</li>
+<li>Add memcached for even more caching, shove rendered pages in there, skip PHP</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>...and finally</h2>
+<li>Four small instances on AWS</li>
+<li>.08 cents an hour = $230</li>
+<li>Plus bandwidth costs</li>
+</section>
+
+<section class="slide" id="circles">
+<h2>Other tips</h2>
+<li>Optimize for speed and reliability</li>
+<li>Fix your ads!</li>
+<li>Audit your plugins and your modifications</li>
+<li>Scale up and down according to traffic</li>
+<li>Never stop measuring</li>
+</section>
+
+<section class="slide" id="priceless">
+<h1>Tools, boring. Expertise, priceless.</h1>
+</section>
+
+<section class="slide" id="circles">
+<h2>The final deployment for the world</h2>
+<pre>juju deploy wordpress
+juju deploy mysql
+juju deploy memcached
+juju add-relation wordpress mysql
+juju add-relation wordpress memcached</pre>
+<pre>
+juju add-unit wordpress
+</pre>
+</section>
+
+<section class="slide" id="circles">
+<h2>Other things we ship</h2>
+<pre>juju set wordpress wp-content=git@host:path/repo.git</pre>
+<pre>juju set wordpress debug=yes</pre>
+<pre>juju set wordpress tuning=single
+juju set wordpress tuning=optimized
+juju set wordpress tuning=bare
+</pre>
+</section>
+
+<section class="slide" id="circles">
+<h2>The 90% solution for most blogs</h2>
+<li>Holy God, nginx</li>
+<li>Offload images to your cloud provider</li>
+<li>Optimize your page size!!!</li>
+<li>Some caching is better than none.</li>
+<li>Steal from the best. :)</li>
+</section>
+
+<section class="slide" id="thanks">
+<h2>Thanks!</h2>
+<li>http://jujucharms.com/charms/precise/wordpress</li>
+<li>juju.ubuntu.com</li>
+<li>www.jorgecastro.org</li>
+<br/><br/><br/>
+<h3>Jorge Castro &lt;jorge.castro@canonical.com&gt; - @castrojo</h3></section>
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Thu Jul 12 22:45:47 2012
+;; Desktop file format version 206
+;; Emacs version 23.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("do all" "images" "debug-log" "h" "status" "testing" "mysql" "community" "commmunity" "comm"))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("~/Dropbox/deck.js/nylug/index.html" "~/Dropbox/deck.js/nylug" "~/Dropbox/deck.js/nylug/index.html" "~/Dropbox/deck.js/nylug/index.backup.html" "~/Dropbox/deck.js/nylug" "~/Dropbox/deck.js/nylug/index.html" "/home/kapil/Dropbox/deck.js/nylug/index.backup.html" "~/.juju/environments.yaml" "~/Documents/extract-europython/" "~/Dropbox/deck.js/nylug" "~/Dropbox/deck.js/nylug/index.html" "~/canonical/ensemble/trunk/juju/providers/ec2" "~/canonical/ensemble/trunk/juju/providers/ec2/utils.py" "~/canonical/ensemble/charms/precise/thinkup/config.yaml" "~/Dropbox/deck.js/velocity/index.html" "~/projects/charm-tools/trunk/scripts" "~/projects/charm-tools/" "~/projects/" "~/canonical/ensemble/charms/precise/glance" "~/canonical/ensemble/charms/precise/mediawiki" "~/canonical/ensemble/" "/home/kapil/.juju/sanitized-environments.yaml" "~/.juju/environments.yaml" "~/Dropbox/deck.js/velocity-redux/index.html"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/kapil/Dropbox/deck.js/nylug/index.html"
+  "index.html"
+  'html-mode
+  '(yas/minor-mode)
+  7617
+  '(8957 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "nylug"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  269
+  '(nil nil)
+  t
+  '("/home/kapil/Dropbox/deck.js/nylug/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/Dropbox/deck.js/nylug/index.backup.html"
+  "index.backup.html"
+  'html-mode
+  '(yas/minor-mode)
+  2112
+  '(1941 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/kapil/.juju/environments.yaml"
+  "environments.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  348
+  '(28 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "extract-europython"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  142
+  '(nil nil)
+  t
+  '("/home/kapil/Documents/extract-europython/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "ec2"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  1
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/trunk/juju/providers/ec2/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/trunk/juju/providers/ec2/utils.py"
+  "utils.py"
+  'python-mode
+  '(yas/minor-mode flymake-mode whitespace-mode)
+  3401
+  '(1 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/kapil/Dropbox/deck.js/velocity-redux/index.html"
+  "index.html"
+  'html-mode
+  '(yas/minor-mode)
+  4570
+  '(10046 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/thinkup/config.yaml"
+  "config.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/kapil/Dropbox/deck.js/velocity/index.html"
+  "index.html"
+  'html-mode
+  '(yas/minor-mode)
+  4944
+  '(3221 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "scripts"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  505
+  '(nil nil)
+  t
+  '("/home/kapil/projects/charm-tools/trunk/scripts/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/projects/charm-tools/trunk/scripts/review-queue"
+  "review-queue"
+  'python-mode
+  '(yas/minor-mode whitespace-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "trunk"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  668
+  '(nil nil)
+  t
+  '("/home/kapil/projects/charm-tools/trunk/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "charm-tools"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  132
+  '(nil nil)
+  t
+  '("/home/kapil/projects/charm-tools/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "projects"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  123
+  '(nil nil)
+  t
+  '("/home/kapil/projects/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "glance"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  152
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/glance/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/glance/config.yaml"
+  "config.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "precise"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  593
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "ceph"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  150
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/ceph/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/ceph/config.yaml"
+  "config.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  475
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "postgresql"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  156
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/postgresql/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "rabbitmq-server"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  161
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/rabbitmq-server/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "mongodb"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  153
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/mongodb/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/mongodb/config.yaml"
+  "config.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "mysql"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  151
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/mysql/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/mysql/config.yaml"
+  "config.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  1594
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "mediawiki"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  376
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/precise/mediawiki/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/mediawiki/metadata.yaml"
+  "metadata.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  537
+  '(1 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/kapil/canonical/ensemble/charms/precise/mediawiki/config.yaml"
+  "config.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  nil
+  "charms"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  294
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/charms/")
+  nil)
+
+(desktop-create-buffer 206
+  nil
+  "ensemble"
+  'dired-mode
+  '(yas/minor-mode dired-omit-mode)
+  302
+  '(nil nil)
+  t
+  '("/home/kapil/canonical/ensemble/")
+  nil)
+
+(desktop-create-buffer 206
+  "/home/kapil/.juju/sanitized-environments.yaml"
+  "sanitized-environments.yaml"
+  'yaml-mode
+  '(yas/minor-mode)
+  386
+  '(386 nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
