@@ -39,9 +39,10 @@
 </section>
 
 
+
 <section class="slide" id="whatisjuju">
 <h2>What is juju?</h2>
-<h1>A service orchestration tool for clouds and datacenters.</h1>
+<h2>A service orchestration tool for clouds and datacenters.</h2>
 </section>
 
 <section class="slide" id="why-16">
@@ -51,19 +52,14 @@
 </section>
 
 <section class="slide" id="hadoop">
-<h2>service definitions can be assembled at runtime into app topologies</h2>
+<h2>service definitions can be deployed at runtime into app topologies</h2>
 <h2>services define behavior not simple machine configuration</h2>
-</section>
-
-<section>
-<h2>What problems are we trying to solve?</h2>
-<br/><br/><br/>
-<img src="hadoop_logo.png" style="vertical-align:middle;" />
+<h2>application topologies captured in bundles</h2>
 </section>
 
 
 <section class="slide" id="betteridea">
-<h2>How about this instead?</h2>
+<h2>Deploying hadoop in 5m</h2>
 <pre>juju bootstrap
 juju deploy hadoop hadoop-master --constraints="mem=32GB"
 juju deploy -n5 hadoop hadoop-slavecluster
@@ -74,11 +70,6 @@ juju deploy -n5 hadoop hadoop-slavecluster
 <h2>Connecting services</h2>
 <pre>juju add-relation hadoop-master:namenode hadoop-slavecluster:datanode</pre>
 <pre>juju add-relation hadoop-master:jobtracker hadoop-slavecluster:tasktracker</pre>
-</section>
-
-
-<section class="slide" id="scaling">
-<h1>Scaling Services</h1>
 </section>
 
 <section class="slide" id="scaling">
@@ -92,18 +83,13 @@ juju add-unit hadoop-slavecluster</pre>
 </section>
 </section>
 
-
-<section class="slide" id="demo2">
-<h2>Details, Details</h2>
-<li>Quick architecture</li>
-<li>Setting up an environment</li>
-<li>Writing your first charm</li>
-<li>Hooks & Relations</li>
-<li>Introspection & Debugging</li>
+<section class="slide" id="relations">
+<h2>Deploying hadoop in 1 command</h2>
+<pre>juju deployer -W -c hadoop.yml</pre>
 </section>
 
 <section class="slide" id="architecture">
-<img src="architecture.png"/>
+  <img src="JujuArchitectureComponents.png"/>
 </section>
 
 <section class="slide" id="environments-yaml">
@@ -123,11 +109,6 @@ environments:
     default-series: precise
     region: us-west-2
 </pre>
-</section>
-
-<section class="slide" id="charm-contents">
-<h2>Charm contents</h2>
-<img src="charm-contents.png" />
 </section>
 
 <section class="slide" id="metadata.yaml">
@@ -234,84 +215,72 @@ options:
 <img src="debug-hooks.gif" />
 </section>
 
-<section class="slide" id="demo">
-<h2>Demo</h2>
-<li>subway</li>
-<li>mediawiki</li>
-<li>hadoop</li>
+<section class="slide" id="dev-tools-2">
+<h2>Bundles</h2>
+<li> Capture application topology </li>
+<li> Service configs, relations, constraints, resources </li>
+<li> Additional docs http://pythonhosted.org/juju-deployer/ </li>
 </section>
 
+<section class="slide" id="dev-tools-2">
+<h2>Bundles Continued</h2>
+
+<pre>
+mediawiki-scalable: 
+  series: precise
+  services: 
+    mediawiki: 
+      charm: "cs:precise/mediawiki-10"
+      num_units: 4
+      options: 
+        debug: false
+        name: my wiki
+        skin: vector
+      constraints: "mem=8G"
+      annotations: 
+        "gui-x": 618
+        "gui-y": -128
+    memcached: 
+      charm: "cs:precise/memcached-7"
+      num_units: 1
+      constraints: "mem=16G"
+      annotations: 
+        "gui-x": 926
+        "gui-y": -125
+    haproxy: 
+      charm: "cs:precise/haproxy-19"
+      num_units: 1
+      annotations: 
+        "gui-x": 619
+        "gui-y": -406
+    mysql: 
+      charm: "cs:precise/mysql-28"
+      num_units: 1
+      options: 
+        "binlog-format": MIXED
+        "ha-mcastport": 5411
+        "preferred-storage-engine": InnoDB
+      constraints: "mem=16G,root-disk=8G"
+      annotations: 
+        "gui-x": 926
+        "gui-y": 123
+  relations: 
+    - - "mediawiki:cache"
+      - "memcached:cache"
+    - - "haproxy:reverseproxy"
+      - "mediawiki:website"
+    - - "mediawiki:db"
+      - "mysql:db"
+</pre>
+</section>
 
 
 <section class="slide" id="community">
-<h2>A Community of Expertise, not just packages</h2>
-<li>As little or as much as you want.</li>
-<li>... in whatever language you want.</li>
-<li>Easy to share, easy to hack on.</li>
-<li>Lightweight contribution process.</li>
-<li>You're probably 90% there!</li>
+<h2>Available charms </h2>
+<li> http://jujucharms.com </li>
+<li> http://manage.jujucharms.com </li>
+<li> All official charms reviewed for quality and correctness </li>
 </section>
-
-
-<!--
-</section>
-<section class="slide" id="why">
-<h2>Why do this?</h2>
-<li>Get your code out to users faster!</li>
-<li>Because sometimes you need/want newer things than Ubuntu provides.</li>
-<li>Built in sharing</li>
-	<pre>juju deploy cs:~jorge/my-crazy-deployment</pre>
-<li>Automated testing of all the charms</li>
-</section>
-
-<section class="slide" id="mysql">
-<h2>Ship Community best practices...</h2>
-<blockquote>MySQL scaling is a solved problem.
-	<br/><cite>- Paul Hammond - Monday</cite>
-</blockquote>
-<pre>juju set mysql tuning-level=fast
-juju set mysql tuning-level=safe
-juju set mysql tuning-level=unsafe</pre>
-</section>
--->
-
-<section class="slide" id="charms">
-<h2>88+ Charms and counting...</h2>
-<img src="charms.png" />
-</section>
-
-<section class="slide" id="deployment">
-<h2>Deployment Options</h2>
-<img src="options.png" align="right"/>
-<li>EC2</li>
-<li>OpenStack (Beta)</li>
-<li>Bare Metal via MAAS</li>
-<li>Azure (experimental)</li>
-<li>Local Development via LXC containers</li>
-<li>.... ?</li>
-</section>
-
-<section class="slide" id="openstack">
-<h2>Openstack</h2>
-<img src="openstack.gif" />
-</section>
-
-<section class="slide" id="provider">
-<h2></h2>
-<img src="juju-diagram.png" />
-</section>
-
-<section class="slide" id="future">
-<h2>The Future</h2>
-<img src="moller.jpg" align="right"/>
-<li>Stacks</li>
-<li>Storage Management</li>
-<li>Cloud Federation</li>
-<li>Rest API</li>
-<li>More providers as cloud services pop up</li>
-<li>Charms, Charms, Charms, Charms...</li>
-</section>
-
 
 <section class="slide" id="thanks">
 <h2>Thanks!</h2>
@@ -319,9 +288,8 @@ juju set mysql tuning-level=unsafe</pre>
 <li>launchpad.net/juju</li>
 <li>jujucharms.com</li>
 <li>#juju on Freenode</li>
-<li>OSX Client: jujutools.github.com/</li>
 <br/><br/><br/>
-<h3>Kapil Thangavelu &lt;kapil.thangavelu@canonical.com&gt; - @kapilvt</h3>
+</section>
 
   <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
   <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
