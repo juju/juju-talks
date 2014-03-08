@@ -6,4 +6,4 @@
 - [github.com/charms](http://github.com/charms)
 - `#Juju on Freenode`
 
-<small>To reach me directly - @lazypower on twitter or +chuckbutlertheninja on Google+</small>
+<small>To reach me directly - @lazypower on twitter</small>
