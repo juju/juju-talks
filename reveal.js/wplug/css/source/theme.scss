@@ -45,7 +45,7 @@ $heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b
 
 // Background generator ------------------------
 @mixin bodyBackground() {
-        @include radial-gradient( rgba(28,30,32,1), rgba(85,90,95,1) );
+        @include radial-gradient( #2C001E, #5E2750 );
 }
 // ---------------------------------------------
 

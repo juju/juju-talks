@@ -15,14 +15,14 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #2C001E;
-  background: -moz-radial-gradient(center, circle cover, #5E2750 0%, #2C001E 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #5E2750), color-stop(100%, #2C001E));
-  background: -webkit-radial-gradient(center, circle cover, #5E2750 0%, #2C001E 100%);
-  background: -o-radial-gradient(center, circle cover, #5E2750 0%, #2C001E 100%);
-  background: -ms-radial-gradient(center, circle cover, #5E2750 0%, #2C001E 100%);
-  background: radial-gradient(center, circle cover, #5E2750 0%, #2C001E 100%);
-  background-color: #2b2b2b; }
+  background: #2c001e;
+  background: -moz-radial-gradient(center, circle cover, #5e2750 0%, #2c001e 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #5e2750), color-stop(100%, #2c001e));
+  background: -webkit-radial-gradient(center, circle cover, #5e2750 0%, #2c001e 100%);
+  background: -o-radial-gradient(center, circle cover, #5e2750 0%, #2c001e 100%);
+  background: -ms-radial-gradient(center, circle cover, #5e2750 0%, #2c001e 100%);
+  background: radial-gradient(center, circle cover, #5e2750 0%, #2c001e 100%);
+  background-color: #2c001e; }
 
 .reveal {
   font-family: "Lato", sans-serif;
@@ -60,7 +60,7 @@ body {
  * LINKS
  *********************************************/
 .reveal a:not(.image) {
-  color: #13daec;
+  color: #aea79f;
   text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
@@ -69,22 +69,24 @@ body {
   transition: color .15s ease; }
 
 .reveal a:not(.image):hover {
-  color: #71e9f4;
+  color: #dddad6;
   text-shadow: none;
   border: none; }
 
 .reveal .roll span:after {
   color: #fff;
-  background: #0d99a5; }
+  background: #8b8176; }
 
 /*********************************************
  * IMAGES
  *********************************************/
 .reveal section img {
   margin: 15px 0px;
-  /*background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #eeeeee;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);*/
+  	/*background: rgba(255,255,255,0.12);
+  	border: 4px solid $mainColor;
+  
+  	box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  */
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   -ms-transition: all .2s linear;
@@ -93,7 +95,7 @@ body {
 
 .reveal a:hover img {
   background: rgba(255, 255, 255, 0.2);
-  border-color: #13daec;
+  border-color: #aea79f;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.55); }
 
 /*********************************************
@@ -101,31 +103,31 @@ body {
  *********************************************/
 .reveal .controls div.navigate-left,
 .reveal .controls div.navigate-left.enabled {
-  border-right-color: #13daec; }
+  border-right-color: #aea79f; }
 
 .reveal .controls div.navigate-right,
 .reveal .controls div.navigate-right.enabled {
-  border-left-color: #13daec; }
+  border-left-color: #aea79f; }
 
 .reveal .controls div.navigate-up,
 .reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #13daec; }
+  border-bottom-color: #aea79f; }
 
 .reveal .controls div.navigate-down,
 .reveal .controls div.navigate-down.enabled {
-  border-top-color: #13daec; }
+  border-top-color: #aea79f; }
 
 .reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #71e9f4; }
+  border-right-color: #dddad6; }
 
 .reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #71e9f4; }
+  border-left-color: #dddad6; }
 
 .reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #71e9f4; }
+  border-bottom-color: #dddad6; }
 
 .reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #71e9f4; }
+  border-top-color: #dddad6; }
 
 /*********************************************
  * PROGRESS BAR
@@ -134,7 +136,7 @@ body {
   background: rgba(0, 0, 0, 0.2); }
 
 .reveal .progress span {
-  background: #13daec;
+  background: #aea79f;
   -webkit-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -ms-transition: width 800ms cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -145,4 +147,4 @@ body {
  * SLIDE NUMBER
  *********************************************/
 .reveal .slide-number {
-  color: #13daec; }
+  color: #aea79f; }
