@@ -1,0 +1,38 @@
+hadoop: 
+  services: 
+    "juju-gui": 
+      charm: "cs:precise/juju-gui-85"
+      num_units: 1
+      expose: true
+      annotations: 
+        "gui-x": "151.00001525878906"
+        "gui-y": "57.5"
+    "hadoop-master": 
+      charm: "cs:precise/hadoop-10"
+      num_units: 1
+      expose: true
+      annotations: 
+        "gui-x": "670.9191466830049"
+        "gui-y": "392.8400343585607"
+    "hadoop-slavecluster": 
+      charm: "cs:precise/hadoop-10"
+      num_units: 2
+      annotations: 
+        "gui-x": "628.3332046960281"
+        "gui-y": "106.61878278661516"
+    hive: 
+      charm: "cs:precise/hive-4"
+      num_units: 3
+      annotations: 
+        "gui-x": "1052.5858336947235"
+        "gui-y": "686.3796452663048"
+    mysql: 
+      charm: "cs:precise/mysql-35"
+      num_units: 1
+      options: 
+        "binlog-format": ROW
+      annotations: 
+        "gui-x": "1474.7657653353485"
+        "gui-y": "683.5067213702795"
+  relations: []
+  series: precise

@@ -1,0 +1,35 @@
+[
+    "index.html",
+    [
+        "the-buzzword-slide.md",
+        "whats-in-a-name.md"
+    ],
+    "what-is-it.md",
+    "all-the-environments.md",
+    [
+        "but-x-did-this-for-me.md",
+        "about-orchestration.md",
+        "what-are-you-trying-to-solve.md",
+        "hadoop.html",
+        {
+            "attr": {
+                "data-background": "../images/instant-big-data.png"
+            }
+        },
+        "hadoop-aftermath.md",
+        "service-orchestration.md",
+        "hadoop-juju-deployment.md",
+        "apt-get-for-the-cloud.md",
+        "devopsolution.html"
+    ],
+    [
+        "charms.md",
+        "technologies.md",
+        "charms-2.md",
+        "writing-charms.md"
+    ],
+    "how-it-works.md",
+    "a-community-of-expertise.md",
+    "about-the-author.md",
+    "live-demo.md"
+]

@@ -1,0 +1,7 @@
+{
+  "generator-reveal": {
+    "presentationTitle": "Ubuntu Juju",
+    "packageVersion": "0.0.0",
+    "useSass": true
+  }
+}
