@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js ie6" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js ie7" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->  <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Juju</title>
+	
+	<meta name="description" content="A jQuery library for modern HTML presentations">
+	<meta name="author" content="Caleb Troughton">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+	
+	<!-- Core and extension CSS files -->
+	<link rel="stylesheet" href="../core/deck.core.css">
+	<link rel="stylesheet" href="../extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="../extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="../extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="../extensions/status/deck.status.css">
+	<link rel="stylesheet" href="../extensions/hash/deck.hash.css">
+	
+	<!-- Theme CSS files (menu swaps these out) -->
+	<link rel="stylesheet" id="style-theme-link" href="../themes/style/ubuntu.css">
+	<link rel="stylesheet" id="transition-theme-link" href="../themes/transition/fade.css">
+	
+	<!-- Custom CSS just for this page -->
+	<link rel="stylesheet" href="introduction.css">
+	
+	<script src="../modernizr.custom.js"></script>
+</head>
+
+<body class="deck-container">
+
+<section class="slide" id="whatisjuju">
+<h1>MongoDB and Juju</h1>
+<img src="ubuntu.png"/>
+<br/><br/><br><br><br><br><br><br>
+<center><h3>Marco Ceppi &lt;marcoceppi@ubuntu.com&gt; - @marcoceppi</h3></center>	
+</section>
+
+<section class="slide" id="scaleit">
+<h1><img src="502c7ef184092.png"></h1>
+</section>
+
+<section class="slide" id="hadoop">
+<h1><img src="DevOpsolution.png" />
+</h1>
+</section>
+
+<section class="slide" id="cattle">
+<h1><img src="tumblr_myg8hbrosm1r7yxrco1_500.gif" width=90%/>
+</h1>
+</section>
+
+<section class="slide" id="charming">
+<h1><img src="Eyebrow_raise_community.gif" width=90% />
+</h1>
+</section>
+
+<section class="slide" id="allmywutwut">
+<h1><img src="giphy.gif" width=90%">
+</section>
+
+<section class="slide" id="allmywut">
+<h1><img src="tumblr_ms9zvsDXkm1ris28no1_400.gif" width=90%">
+</section>
+
+<section class="slide" id="subject-matter">
+<h1><img src="51831366.jpg" width="60%">
+</section>
+
+<section class="slide" id="example">
+<h2></h2>
+<pre>juju bootstrap
+juju deploy mongodb
+juju add-unit -n5 mongodb
+</pre>
+</section>
+
+<section class="slide" id="example">
+<h2></h2>
+<pre>juju bootstrap
+juju deploy mongodb
+juju add-unit -n5 mongodb
+</pre>
+<img src="illallowit.gif" width="70%">
+</section>
+
+<section class="slide" id="sharding">
+<br/><br/>
+<h1><img src="50943697.jpg"/></h1>
+</section>
+
+<section class="slide" id="shard-example">
+<h2></h2>
+<pre>juju bootstrap
+juju deploy mongodb mongos
+juju deploy mongodb shard1
+juju deploy mongodb shard2
+juju deploy mongodb shard3
+juju deploy mongodb mongo-config
+</pre>
+</section>
+
+<section class="slide" id="shard-example-goon">
+<img src="goon.gif" width="70%">
+</section>
+
+<section class="slide" id="shard-example-relation">
+<h2></h2>
+<pre>juju bootstrap
+juju deploy mongodb mongos
+juju deploy mongodb shard1
+juju deploy mongodb shard2
+juju deploy mongodb shard3
+juju deploy mongodb mongo-config
+</pre>
+
+<pre>juju add-relation mongos:mongos shard1:database
+juju add-relation mongos:mongos shard2:database
+juju add-relation mongos:mongos shard3:database
+juju add-relation mongos:mongos-cfg mongo-config:configsvr
+</pre>
+</section>
+
+<section class="slide" id="notbad">
+<h1><img src="obamanotbad.jpg" width="80%"></h1>
+</section>
+
+<section class="slide" id="priceless">
+<h1>Tools, boring. Expertise, priceless.</h1>
+</section>
+
+<section class="slide" id="demo-time">
+<h1><img src="7cc29a92ee3024c3732febf291950706ff2f48ef889bc41999da34568d991fff.jpg"></h1>
+</section>
+
+<section class="slide" id="thanks">
+<h2>Thanks!</h2>
+<li>juju.ubuntu.com</li>
+<li>github.com/juju</li>
+<li>github.com/charms</li>
+<li>#juju on Freenode</li>
+<br/><br/><br/>
+<h3>Marco Ceppi &lt;marcoceppi@ubuntu.com&gt; - @marcoceppi</h3>
+</section>
+
+  <!-- Grab CDN jQuery, with a protocol relative URL; fall back to local if offline -->
+  <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../jquery-1.7.min.js"><\/script>')</script>
+
+<!-- Deck Core and extensions -->
+<script src="../core/deck.core.js"></script>
+<script src="../extensions/hash/deck.hash.js"></script>
+<script src="../extensions/menu/deck.menu.js"></script>
+<script src="../extensions/goto/deck.goto.js"></script>
+<script src="../extensions/status/deck.status.js"></script>
+<script src="../extensions/navigation/deck.navigation.js"></script>
+
+<!-- Specific to this page -->
+<script src="introduction.js"></script>
+
+</body>
+</html>
